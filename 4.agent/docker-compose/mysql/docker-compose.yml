@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword # 设置 root 密码
+      MYSQL_DATABASE: langgraph_agent # 初始化数据库
+      MYSQL_USER: myuser # 新建用户
+      MYSQL_PASSWORD: mypassword # 用户密码
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql # 持久化存储
